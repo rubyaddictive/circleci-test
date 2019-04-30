@@ -7,8 +7,23 @@ jobs:
     branches:
       only: master
     steps:
+      - checkout
       - run:
           name: The first step
           command: |
             echo 'Hello, World'
             echo 'This is the delivery pipeline'
+      - run:
+          name: Code has arrived
+          command: |
+            ls -al 
+            echo '^^^ That should like familiar ^^^'
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
