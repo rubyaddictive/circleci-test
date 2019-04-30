@@ -18,12 +18,3 @@ jobs:
           command: |
             ls -al 
             echo '^^^ That should like familiar ^^^'
-
-workflows:
-  version: 2
-  deploy:
-    jobs:
-      - build:
-          filters:
-            branches:
-              only: master
