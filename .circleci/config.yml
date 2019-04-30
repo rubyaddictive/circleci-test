@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: alpine:3.7
+    working_directory: ~/myapp
+    branches:
+      only: master
     steps:
       - run:
           name: The first step
